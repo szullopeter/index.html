@@ -87,16 +87,13 @@
                           let response = await fetch('http://localhost:8080/student/getStudent/100');
                           console.log(response);
                       }
-                        AFRAME.registerComponent('StudentName',{
+                      AFRAME.registerComponent('StudentName',{
                         init:function(){
                        // var obj = JSON.parse(response.JSON);
                        var obj = JSON.parse('{ "name":"JohnASS", "age":30, "city":"New York"}'); 
                        console.log(obj);
                         this.el.setAttribute('value',obj.name);
-                        }
-                        }
-                        )
-                        </script>
+                        }})</script>
            <a-text font="https://cdn.aframe.io/fonts/mozillavr.fnt" color="red" scale="1 1 1" position="-0.8 0.2 0" rotation="-90 0 0" StudentName></a-text>
       </a-marker>
 
