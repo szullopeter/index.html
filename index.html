@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype HTML>
 <html>
-  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-  <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script> 
-  <body style="margin : 0px; overflow: hidden;">
-    <a-scene embedded arjs>
-      <a-marker preset="hiro">
-        <!-- x: +right y: +away  z:+ down -->
-        <a-box position="-1.25 0 -1.5" 
-        src="https://www.bing.com/images/search?view=detailV2&ccid=7RJVREo3&id=1736E845F1507D180D90946D82881274A2844CB6&thid=OIP.7RJVREo3kZYmfMupKJGw1gHaHa&mediaurl=https%3a%2f%2fexternal-preview.redd.it%2f7KPaG_yoPIhRmt8nLyhAztUlVhdpH_LnTAdgRgfvn28.jpg%3fauto%3dwebp%26s%3d06d891f173e8d0002ac8ee238d5a58f37086d5a6&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.ed1255444a379196267ccba92891b0d6%3frik%3dtkyEonQSiIJtlA%26pid%3dImgRaw%26r%3d0&exph=2048&expw=2048&q=moon+texture&simid=607992521508552641&FORM=IRPRST&ck=A95F60F74C810FE3588BC96742CBC8F3&selectedIndex=0&ajaxhist=0&ajaxserp=0"
-        
-        rotation="0 0 -45" animation="property: rotation;to: 0 360 0; loop: true; dur: 10000" opacity=" 0.7" material="color: blue;"></a-box>
-            <a-box position="1.25 0 -1.5" rotation="30 0 0" animation="property: rotation; to: 0 0 360; loop: true; dur: 10000" opacity=" 0.7"  material="color: red;"></a-box>
-            <a-box position="-1.25 0 1.5" rotation="0 -45 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000" opacity=" 0.7" material="color: green;"></a-box>
-            <a-box position="1.25 0 1.5" rotation="0 30 0" animation="property: rotation; to: 360 0 0; loop: true; dur: 10000" opacity=" 0.7" material="color: yellow;"></a-box>
-           <a-image src="image.png"  position="0 0 0" rotation="90 180 0" width="1.5" height="1.5"></a-image>
-          </a-marker>
-      <a-entity camera></a-entity>
-    </a-scene>
-  </body>
-</html>
+<script src="https://aframe.jo/releases/0.8.2/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script> 
+<body style="margin: Opx; overflow: hidden;"
+<a-scene embedded arjs>
+<a-marker preset="hiro">
+<a-box position="0 0.5 0" material="color: red;">
+<a-animation attribute="rotation"
+dur="3000"
+to="360 360 0"
+repeat=" indefinite"
+easing="linear">
+</a-animation>
+</a-animation> 
+<a-box>
+</a-marker>
+<a-entity camera></a-entity>
+</a-scene>
+</body>
+    </html>
