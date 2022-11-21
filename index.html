@@ -29,7 +29,8 @@
       <a-entity camera></a-entity> 
     </a-scene>
 
-    <a-scene embedded arjs='detectionMode: mono_and_matrix; matrixCodeType: 4x4;'>
+    <a-scene embedded arjs='detectionMode: AR_MATRIX_CODE_DETECTION; matrixCodeType: AR_MATRIX_CODE_4x4;'>
+
       <a-marker type='barcode' value='5'>
         <a-box position="-1.25 0 -1.5" src="moon.png" rotation="0 0 -45" animation="property: rotation;to: 0 360 0; loop: true; dur: 30000" opacity=" 1" material="color: none;"></a-box>
             <a-box position="1.25 0 -1.5" src="grass.png" rotation="30 0 0" animation="property: rotation; to: 0 0 360; loop: true; dur: 30000" opacity=" 1"  material="color: none;"></a-box>
