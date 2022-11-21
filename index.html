@@ -4,21 +4,49 @@
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script> 
   <body style="margin : 0px; overflow: hidden;">
-
-
     <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;detectionMode: mono_and_matrix; matrixCodeType: 4x4;'>
 
       <a-marker type='barcode' value='5'>
+<!--
+        <script>
+          const getData = document.querySelector('#getUser');
+    
+                const sendInfo = async() => {
+            let response = await fetch('http://localhost:8080/student/getStudent/100');
+            console.log(response);
+        }
+      </script>
+      -->
+
+      <script> 
+
+        AFRAME.registerComponent('displayName', {
+        
+          init: function(){
+        
+            const sendInfo = async() => {
+            let response = await fetch('http://localhost:8080/student/getStudent/100');
+            this.el.setAttribute('Name', response)
+        
+          }
+        
+        })
+        
+        </script>
+
+
         <a-box position="-1.25 0 -1.5" src="moon.png" rotation="0 0 -45" animation="property: rotation;to: 0 360 0; loop: true; dur: 30000" opacity=" 1" material="color: none;"></a-box>
             <a-box position="1.25 0 -1.5" src="grass.png" rotation="30 0 0" animation="property: rotation; to: 0 0 360; loop: true; dur: 30000" opacity=" 1"  material="color: none;"></a-box>
             <a-box position="-1.25 0 1.5" src="sand.png" rotation="0 -45 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 30000" opacity=" 1" material="color: none;"></a-box>
             <a-box position="1.25 0 1.5" src="water.png" rotation="0 30 0" animation="property: rotation; to: 360 0 0; loop: true; dur: 30000" opacity=" 1" material="color: none;"></a-box>
+
+
            <a-image src="image.png"  position="0 0 0" rotation="90 180 0" width="1.5" height="1.5"></a-image>
-           <a-text value="Hello Peter" font="https://cdn.aframe.io/fonts/mozillavr.fnt" color="red" scale="1 1 1" position="-0.8 0.2 0" rotation="-90 0 0"></a-text>
+           <a-text value=Name font="https://cdn.aframe.io/fonts/mozillavr.fnt" color="red" scale="1 1 1" position="-0.8 0.2 0" rotation="-90 0 0"></a-text>
       </a-marker>
 
 
-      <a-marker type='barcode' value='31'>
+      <a-marker type='barcode' value='6'>
         <a-box position="-1.25 0 -1.5" src="moon.png" rotation="0 0 -45" animation="property: rotation;to: 0 360 0; loop: true; dur: 30000" opacity=" 1" material="color: none;"></a-box>
             <a-box position="1.25 0 -1.5" src="grass.png" rotation="30 0 0" animation="property: rotation; to: 0 0 360; loop: true; dur: 30000" opacity=" 1"  material="color: none;"></a-box>
             <a-box position="-1.25 0 1.5" src="sand.png" rotation="0 -45 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 30000" opacity=" 1" material="color: none;"></a-box>
