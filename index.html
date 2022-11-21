@@ -17,13 +17,13 @@
         }
       </script>
       -->
-      <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+     <!-- <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>-->
       <script>
       AFRAME.registerComponent('foo',{
       init:function(){
       var obj = JSON.parse('{ "name":"John", "age":30, "city":"New York"}');
       console.log(obj);
-      this.el.setAttribute('value',obj.name);
+      this.el.setAttribute('StudentName',obj.name);
       }
       }
       )
