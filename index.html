@@ -17,7 +17,18 @@
         }
       </script>
       -->
-
+      <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+      <script>
+      AFRAME.registerComponent('foo',{
+      init:function(){
+      var obj = JSON.parse('{ "name":"John", "age":30, "city":"New York"}');
+      console.log(obj);
+      this.el.setAttribute('value',obj.name);
+      }
+      }
+      )
+      </script>
+<!--
       <script> 
 
         AFRAME.registerComponent('StudentName', {
@@ -42,6 +53,7 @@
         */
         
         </script>
+        -->
 
 
         <a-box position="-1.25 0 -1.5" src="moon.png" rotation="0 0 -45" animation="property: rotation;to: 0 360 0; loop: true; dur: 30000" opacity=" 1" material="color: none;"></a-box>
