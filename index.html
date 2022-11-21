@@ -21,12 +21,13 @@
       <script> 
 
         AFRAME.registerComponent('StudentName', {
-        
           init: function(){
         
             const sendInfo = async() => {
             let response = await fetch('http://localhost:8080/student/getStudent/100');
-            this.el.setAttribute('StudentName', response)
+            var obj = JSON.parse(response)
+            console.log(obj);
+            this.el.setAttribute('StudentName', obj.name)
         
           }
           }
