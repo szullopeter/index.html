@@ -100,13 +100,14 @@
             <script>
                               const sendInfo = async() => {
                           let response = await fetch('http://localhost:8080/student/getStudent/100');
+                          const names = await response.json();
                           console.log(response);
                       }
 
               AFRAME.registerComponent('studentname',{
               init:function(){
               //var obj = JSON.parse('{ "name":"Jeremy", "age":30, "city":"New York"}');
-              var obj = JSON.parse(response);
+              var obj = JSON.parse(names);
               console.log(obj);
               this.el.setAttribute('value',obj.name);
               }
