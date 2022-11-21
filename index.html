@@ -20,13 +20,13 @@
 
       <script> 
 
-        AFRAME.registerComponent('Name', {
+        AFRAME.registerComponent('StudentName', {
         
           init: function(){
         
             const sendInfo = async() => {
             let response = await fetch('http://localhost:8080/student/getStudent/100');
-            this.el.setAttribute('Name', response)
+            this.el.setAttribute('StudentName', response)
         
           }
           }
@@ -42,7 +42,7 @@
 
 
            <a-image src="image.png"  position="0 0 0" rotation="90 180 0" width="1.5" height="1.5"></a-image>
-           <a-text Name font="https://cdn.aframe.io/fonts/mozillavr.fnt" color="red" scale="1 1 1" position="-0.8 0.2 0" rotation="-90 0 0"></a-text>
+           <a-text font="https://cdn.aframe.io/fonts/mozillavr.fnt" color="red" scale="1 1 1" position="-0.8 0.2 0" rotation="-90 0 0" StudentName></a-text>
       </a-marker>
 
 
