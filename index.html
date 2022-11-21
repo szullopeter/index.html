@@ -21,6 +21,14 @@
       <script> 
 
         AFRAME.registerComponent('StudentName', {
+  init:function(){
+  var obj = JSON.parse('{ "name":"John", "age":30, "city":"New York"}');
+  console.log(obj);
+  this.el.setAttribute('StudentName',obj.name);
+  }
+  }
+  )
+        /*
           init: function(){
         
             const sendInfo = async() => {
@@ -28,10 +36,10 @@
             var obj = JSON.parse(response)
             console.log(obj);
             this.el.setAttribute('StudentName', obj.name)
-        
           }
           }
         })
+        */
         
         </script>
 
