@@ -146,10 +146,10 @@ document.addEventListener("DOMContentLoaded",async () =>{
  // consol.log(users);
             AFRAME.registerComponent('studentname',{
             init:function(){
-//            var obj = JSON.parse('{ "name":"Testver A meno", "age":30, "city":"New York"}');
+            //var obj = JSON.parse('{ "name":"Testver A meno", "age":30, "city":"New York"}');
             var obj = JSON.parse(users);
             console.log(obj);
-            this.el.setAttribute('value',obj.Name);
+            this.el.setAttribute('value',obj.name);
             }
             }
             )
