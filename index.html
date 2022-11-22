@@ -8,25 +8,9 @@
       async function loadUsers(){
         return (await fetch('http://localhost:8080/student/getStudent/100')).json();
       }
+      </script>
       
-      
-      document.addEventListener("DOMContentLoaded",async () =>{
-        const users=await loadUsers();
-       // consol.log(users);
-                });
-                AFRAME.registerComponent('studentname',{
-                  init:function(){
-                  //var obj = JSON.parse('{ "name":"Testver A meno", "age":30, "city":"New York"}');
-                  var obj = JSON.parse(users);
-                  console.log(obj.name);
-                  this.el.setAttribute('value',obj.name);
-                  }
-                  }
-                  )
-                  
-      
-      
-                </script>
+
     <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;detectionMode: mono_and_matrix; matrixCodeType: 4x4;'>
       
 <!--
@@ -164,7 +148,24 @@ document.addEventListener("DOMContentLoaded",async () =>{
 });
 */
 -->
+<script>
+document.addEventListener("DOMContentLoaded",async () =>{
+  const users=await loadUsers();
+ // consol.log(users);
+          });
+          AFRAME.registerComponent('studentname',{
+            init:function(){
+            //var obj = JSON.parse('{ "name":"Testver A meno", "age":30, "city":"New York"}');
+            var obj = JSON.parse(users);
+            console.log(obj.name);
+            this.el.setAttribute('value',obj.name);
+            }
+            }
+            )
+            
 
+
+          </script>
 
            <a-text font="https://cdn.aframe.io/fonts/mozillavr.fnt" color="red" scale="1 1 1" position="-0.8 0.2 0" rotation="-90 0 0" studentname></a-text>
       </a-marker>
