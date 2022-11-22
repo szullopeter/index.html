@@ -4,194 +4,80 @@
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script> 
   <body style="margin : 0px; overflow: hidden;">
-    <script>
+    <script>  
 
-
-      async function loadUsers(){
-        return (await fetch('http://localhost:8080/student/getStudent/2')).json();
+      async function loadUsers(id){
+        var url='http://localhost:8080/student/getStudent/';
+        url=url.concat(id.toString());
+        return (await fetch(url)).json();
       }
+        document.addEventListener("DOMContentLoaded",async () =>{
+        var el = document.querySelector('#nevtext');
+        var obj=await loadUsers(2); 
+        console.log(obj);
+        el.setAttribute('value',obj.name);
+          //masodik hozzaadas
+        el = document.querySelector('#nevtext2');
+         obj=await loadUsers(1); 
+        console.log(obj);
+        el.setAttribute('value',obj.name)
 
+                  //masodik hozzaadas
+                  el = document.querySelector('#nevtext3');
+         obj=await loadUsers(3); 
+        console.log(obj);
+        el.setAttribute('value',obj.name)
 
-      document.addEventListener("DOMContentLoaded",async () =>{
-  const users=await loadUsers();
-
-
-
-  AFRAME.registerComponent('studentname',{
-    init:function(){
-   // var obj = JSON.parse('{ "name":"Meno a Vakmero", "age":30, "city":"New York"}');
-    var obj = JSON.parse(users);
-    console.log(obj.name);
-    this.el.setAttribute('value',obj.name);
-    }
-    }
-    )
- // consol.log(users);
-          });
-
-
-    
-
+                  //masodik hozzaadas
+                  el = document.querySelector('#nevtext4');
+         obj=await loadUsers(4);  
+        console.log(obj);
+        el.setAttribute('value',obj.name)
+});
 </script>
     <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;detectionMode: mono_and_matrix; matrixCodeType: 4x4;'>
-      
-<!--
-        <script>
-          const getData = document.querySelector('#getUser');
-    
-                const sendInfo = async() => {
-            let response = await fetch('http://localhost:8080/student/getStudent/100');
-            console.log(response);
-        }
-      </script>
-      -->
-     <!-- <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>-->
-<!--
-      <script> 
-
-        AFRAME.registerComponent('StudentName', {
-  init:function(){
-  var obj = JSON.parse('{ "name":"John", "age":30, "city":"New York"}');
-  console.log(obj);
-  this.el.setAttribute('StudentName',obj.name);
-  }
-  }
-  )
-        /*
-          init: function(){
-        
-            const sendInfo = async() => {
-            let response = await fetch('http://localhost:8080/student/getStudent/100');
-            var obj = JSON.parse(response)
-            console.log(obj);
-            this.el.setAttribute('StudentName', obj.name)
-          }
-          }
-        })
-        */
-        
-        </script>
-
-
-
-
-
-           <script>
-            AFRAME.registerComponent('StudentName',{
-            init:function(){
-            var obj = JSON.parse('{ "name":"John", "age":30, "city":"New York"}');
-            console.log(obj);
-            this.el.setAttribute('StudentName',obj.name);
-            }
-            }
-            )
-            </script>
-
-
-
-        -->
-
         <a-marker type='barcode' value='5'>
-          <a-box position="-1.25 0 -1.5" src="moon.png" rotation="0 0 -45" animation="property: rotation;to: 0 360 0; loop: true; dur: 30000" opacity=" 1"></a-box>
-              <a-box position="1.25 0 -1.5" src="grass.png" rotation="30 0 0" animation="property: rotation; to: 0 0 360; loop: true; dur: 30000" opacity=" 1"></a-box>
-              <a-box position="-1.25 0 1.5" src="sand.png" rotation="0 -45 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 30000" opacity=" 1"></a-box>
-              <a-box position="1.25 0 1.5" src="water.png" rotation="0 30 0" animation="property: rotation; to: 360 0 0; loop: true; dur: 30000" opacity=" 1" ></a-box>
+          <a-box position="-1.25 0 -1.5"   src="moon.png" rotation="0 0 -45" animation="property: rotation;to: 0 360 0; loop: true; dur: 30000" opacity=" 1"></a-box>
+              <a-box position="1.25 0 -1.5"  src="grass.png" rotation="30 0 0" animation="property: rotation; to: 0 0 360; loop: true; dur: 30000" opacity=" 1"></a-box>
+              <a-box position="-1.25 0 1.5" src="sand.png"  rotation="0 -45 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 30000" opacity=" 1"></a-box>
+              <a-box position="1.25 0 1.5" src="water.png"  rotation="0 30 0" animation="property: rotation; to: 360 0 0; loop: true; dur: 30000" opacity=" 1" ></a-box>
              <a-image src="image.png"  position="0 0 0" rotation="90 180 0" width="1.5" height="1.5"></a-image>
-
-<!--        <a-marker type='barcode' value='5'>
-        <a-box position="-1.25 0 -1.5" src="moon.png" rotation="0 0 -45" animation="property: rotation;to: 0 360 0; loop: true; dur: 30000" opacity=" 1" material="color: none;"></a-box>
-            <a-box position="1.25 0 -1.5" src="grass.png" rotation="30 0 0" animation="property: rotation; to: 0 0 360; loop: true; dur: 30000" opacity=" 1"  material="color: none;"></a-box>
-            <a-box position="-1.25 0 1.5" src="sand.png" rotation="0 -45 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 30000" opacity=" 1" material="color: none;"></a-box>
-            <a-box position="1.25 0 1.5" src="water.png" rotation="0 30 0" animation="property: rotation; to: 360 0 0; loop: true; dur: 30000" opacity=" 1" material="color: none;"></a-box>
-           <a-image src="image.png"  position="0 0 0" rotation="90 180 0" width="1.5" height="1.5"></a-image>-->
-         <!--  <script>
-            AFRAME.registerComponent('foo',{
-            init:function(){
-            var obj = JSON.parse('{ "name":"John", "age":30, "city":"New York"}');
-            console.log(obj);
-            this.el.setAttribute('value',obj.name);
-            }
-            }
-            )
-
-
-
-            <script>
-
-              const sendInfo = async() => {
-                          let response = await fetch('http://localhost:8080/student/getStudent/100');
-                          console.log(response);
-                      }
-                      AFRAME.registerComponent('StudentName',{
-                        init:function(){
-                       // var obj = JSON.parse(response.JSON);
-                       var obj = JSON.parse('{ "name":"JohnASS", "age":30, "city":"New York"}'); 
-                       console.log(obj);
-                        this.el.setAttribute('value',obj.name);
-                        }})</script>
-
-            </script>
-    <script>
-/*                          const getData = document.querySelector('#getUser');
-                              const sendInfo = async() => {
-                          let response = await fetch('http://localhost:8080/student/getStudent/100');
-                          const names = await response.json();
-                          console.log(response);
-                      }
-//meg kell hivni  a sendinfo-t hogy hivas legyen
-              AFRAME.registerComponent('studentname',{
-              init:function(){
-              //var obj = JSON.parse('{ "name":"Jeremy", "age":30, "city":"New York"}');
-              var obj = JSON.parse(names);
-              console.log(obj);
-              this.el.setAttribute('value',obj.name);
-              }
-              }
-              )*/
-
-//MUKODO
-              /*
-async function loadUsers(){
-  return (await fetch('http://localhost:8080/student/getStudent/100')).json();
-}
-
-document.addEventListener("DOMContentLoaded",async () =>{
-  const users=await loadUsers();
-
-  AFRAME.registerComponent('studentname',{
-              init:function(){
-              var obj2 = JSON.parse('{ "name":"Jeremy", "age":30, "city":"New York"}');
-              var obj = JSON.parse(users);
-              console.log(obj);
-              this.el.setAttribute('value',obj2.name);
-              }
-              }
-              )
-});
-*/
--->
-
-
-           <a-text font="https://cdn.aframe.io/fonts/mozillavr.fnt" color="red" scale="1 1 1" position="-0.8 0.2 0" rotation="-90 0 0" studentname></a-text>
+           <a-text  id="nevtext" font="https://cdn.aframe.io/fonts/mozillavr.fnt" color="red" scale="1 1 1" position="-0.8 0.2 0" rotation="-90 0 0" ></a-text>
       </a-marker>
 
 
       <a-marker type='barcode' value='6'>
-        <a-box position="-1.25 0 -1.5" src="moon.png" rotation="0 0 -45" animation="property: rotation;to: 0 360 0; loop: true; dur: 30000" opacity=" 1"></a-box>
-            <a-box position="1.25 0 -1.5" src="grass.png" rotation="30 0 0" animation="property: rotation; to: 0 0 360; loop: true; dur: 30000" opacity=" 1"></a-box>
-            <a-box position="-1.25 0 1.5" src="sand.png" rotation="0 -45 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 30000" opacity=" 1"></a-box>
-            <a-box position="1.25 0 1.5" src="water.png" rotation="0 30 0" animation="property: rotation; to: 360 0 0; loop: true; dur: 30000" opacity=" 1" ></a-box>
+        <a-box position="-1.25 0 -1.5"   src="moon.png" rotation="0 0 -45" animation="property: rotation;to: 0 360 0; loop: true; dur: 30000" opacity=" 1"></a-box>
+        <a-box position="1.25 0 -1.5"  src="grass.png" rotation="30 0 0" animation="property: rotation; to: 0 0 360; loop: true; dur: 30000" opacity=" 1"></a-box>
+        <a-box position="-1.25 0 1.5" src="sand.png"  rotation="0 -45 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 30000" opacity=" 1"></a-box>
+        <a-box position="1.25 0 1.5" src="water.png"  rotation="0 30 0" animation="property: rotation; to: 360 0 0; loop: true; dur: 30000" opacity=" 1" ></a-box>
            <a-image src="image.png"  position="0 0 0" rotation="90 180 0" width="1.5" height="1.5"></a-image>
+           <a-text id="nevtext2" font="https://cdn.aframe.io/fonts/mozillavr.fnt" color="red" scale="1 1 1" position="-0.8 0.2 0" rotation="-90 0 0"></a-text>
+      </a-marker>
 
+      <a-marker type='barcode' value='7'>
+        <a-box position="-1.25 0 -1.5"   src="moon.png" rotation="0 0 -45" animation="property: rotation;to: 0 360 0; loop: true; dur: 30000" opacity=" 1"></a-box>
+        <a-box position="1.25 0 -1.5"  src="grass.png" rotation="30 0 0" animation="property: rotation; to: 0 0 360; loop: true; dur: 30000" opacity=" 1"></a-box>
+        <a-box position="-1.25 0 1.5" src="sand.png"  rotation="0 -45 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 30000" opacity=" 1"></a-box>
+        <a-box position="1.25 0 1.5" src="water.png"  rotation="0 30 0" animation="property: rotation; to: 360 0 0; loop: true; dur: 30000" opacity=" 1" ></a-box>
+         <a-image src="image.png"  position="0 0 0" rotation="90 180 0" width="1.5" height="1.5"></a-image>
+           <a-text id="nevtext3" font="https://cdn.aframe.io/fonts/mozillavr.fnt" color="red" scale="1 1 1" position="-0.8 0.2 0" rotation="-90 0 0"></a-text>
+      </a-marker>
 
-
-           <a-text value="Hello 31-es" font="https://cdn.aframe.io/fonts/mozillavr.fnt" color="red" scale="1 1 1" position="-0.8 0.2 0" rotation="-90 0 0"></a-text>
+      <a-marker type='barcode' value='8'>
+        <a-box position="-1.25 0 -1.5"   src="moon.png" rotation="0 0 -45" animation="property: rotation;to: 0 360 0; loop: true; dur: 30000" opacity=" 1"></a-box>
+        <a-box position="1.25 0 -1.5"  src="grass.png" rotation="30 0 0" animation="property: rotation; to: 0 0 360; loop: true; dur: 30000" opacity=" 1"></a-box>
+        <a-box position="-1.25 0 1.5" src="sand.png"  rotation="0 -45 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 30000" opacity=" 1"></a-box>
+        <a-box position="1.25 0 1.5" src="water.png"  rotation="0 30 0" animation="property: rotation; to: 360 0 0; loop: true; dur: 30000" opacity=" 1" ></a-box>
+         <a-image src="image.png"  position="0 0 0" rotation="90 180 0" width="1.5" height="1.5"></a-image>
+           <a-text id="nevtext4" font="https://cdn.aframe.io/fonts/mozillavr.fnt" color="red" scale="1 1 1" position="-0.8 0.2 0" rotation="-90 0 0"></a-text>
       </a-marker>
 
 
 
 
-      <a-entity camera></a-entity> 
+      <a-entity camera>
+      </a-entity> 
     </a-scene>
   </body>
 </html>
