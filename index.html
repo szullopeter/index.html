@@ -135,16 +135,24 @@ document.addEventListener("DOMContentLoaded",async () =>{
               )
 });
 */
+
+async function loadUsers(){
+  return (await fetch('http://localhost:8080/student/getStudent/100')).json();
+}
+
+
+document.addEventListener("DOMContentLoaded",async () =>{
+  const users=await loadUsers();
             AFRAME.registerComponent('studentname',{
             init:function(){
-            var obj = JSON.parse('{ "name":"Testver A meno", "age":30, "city":"New York"}');
+//            var obj = JSON.parse('{ "name":"Testver A meno", "age":30, "city":"New York"}');
+            var obj = JSON.parse(users);
             console.log(obj);
             this.el.setAttribute('value',obj.name);
             }
             }
             )
-
-
+          });
 
             
 
