@@ -115,6 +115,8 @@
               }
               )*/
 
+//MUKODO
+              /*
 async function loadUsers(){
   return (await fetch('http://localhost:8080/student/getStudent/100')).json();
 }
@@ -132,7 +134,19 @@ document.addEventListener("DOMContentLoaded",async () =>{
               }
               )
 });
+*/
+            AFRAME.registerComponent('studentname',{
+            init:function(){
+            var obj = JSON.parse('{ "name":"Testver A meno", "age":30, "city":"New York"}');
+            console.log(obj);
+            this.el.setAttribute('value',obj.name);
+            }
+            }
+            )
 
+
+
+            
 
 
           </script>
