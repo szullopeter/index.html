@@ -8,6 +8,11 @@
       async function loadUsers(){
         return (await fetch('http://localhost:8080/student/getStudent/100')).json();
       }
+
+      document.addEventListener("DOMContentLoaded",async () =>{
+  const users=await loadUsers();
+ // consol.log(users);
+          });
       </script>
       
 
@@ -149,10 +154,6 @@ document.addEventListener("DOMContentLoaded",async () =>{
 */
 -->
 <script>
-document.addEventListener("DOMContentLoaded",async () =>{
-  const users=await loadUsers();
- // consol.log(users);
-          });
           AFRAME.registerComponent('studentname',{
             init:function(){
             //var obj = JSON.parse('{ "name":"Testver A meno", "age":30, "city":"New York"}');
