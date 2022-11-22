@@ -142,9 +142,12 @@ document.addEventListener("DOMContentLoaded",async () =>{
 */
 -->
 <script>
+
+
       async function loadUsers(){
         return (await fetch('http://localhost:8080/student/getStudent/2')).json();
       }
+
 
       document.addEventListener("DOMContentLoaded",async () =>{
   const users=await loadUsers();
@@ -153,8 +156,8 @@ document.addEventListener("DOMContentLoaded",async () =>{
 
   AFRAME.registerComponent('studentname',{
     init:function(){
-    //var obj = JSON.parse('{ "name":"Testver A meno", "age":30, "city":"New York"}');
-    var obj = JSON.parse(users);
+    var obj = JSON.parse('{ "name":"Meno a Vakmero", "age":30, "city":"New York"}');
+   // var obj = JSON.parse(users);
     console.log(obj.name);
     this.el.setAttribute('value',obj.name);
     }
@@ -174,6 +177,9 @@ document.addEventListener("DOMContentLoaded",async () =>{
             <a-box position="-1.25 0 1.5" src="sand.png" rotation="0 -45 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 30000" opacity=" 1"></a-box>
             <a-box position="1.25 0 1.5" src="water.png" rotation="0 30 0" animation="property: rotation; to: 360 0 0; loop: true; dur: 30000" opacity=" 1" ></a-box>
            <a-image src="image.png"  position="0 0 0" rotation="90 180 0" width="1.5" height="1.5"></a-image>
+
+
+
            <a-text value="Hello 31-es" font="https://cdn.aframe.io/fonts/mozillavr.fnt" color="red" scale="1 1 1" position="-0.8 0.2 0" rotation="-90 0 0"></a-text>
       </a-marker>
 
